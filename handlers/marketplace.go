@@ -1,7 +1,7 @@
 package handlers
 
 import (
-	marketplace "ffinternal-go/handlers/todo"
+	"ffinternal-go/handlers/marketplace"
 
 	"github.com/gofiber/fiber/v2"
 )
