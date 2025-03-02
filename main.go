@@ -19,7 +19,7 @@ func main() {
 	service.InitRedis()
 
 	app := fiber.New()
-	routes.SetupTodoRoutes(app)
+	routes.SetupMarketplaceRoutes(app)
 
 	log.Println("Server is running on port 3004")
 	if err := app.Listen(":3004"); err != nil {
