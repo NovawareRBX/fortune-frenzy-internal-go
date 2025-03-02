@@ -14,6 +14,8 @@ import (
 var pool *sql.DB
 
 func InitMariaDB() {
+	log.Println("Initializing MariaDB")
+
 	var err error
 	dsn := fmt.Sprintf("%s:%s@tcp(%s:%d)/%s?parseTime=true",
 		os.Getenv("MARIADB_USER"),

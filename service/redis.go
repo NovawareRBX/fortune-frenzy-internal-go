@@ -13,6 +13,8 @@ import (
 var client *redis.Client
 
 func InitRedis() {
+	log.Println("Initializing Redis")
+
 	password := os.Getenv("REDIS_PASSWORD")
 	host := os.Getenv("REDIS_HOST")
 	portStr := os.Getenv("REDIS_PORT")
