@@ -12,12 +12,12 @@ import (
 )
 
 type PacketElement struct {
-	RequestID string                 `json:"request_id"`
-	Route     string                 `json:"route"`
-	Method    string                 `json:"method"`
-	Query     map[string]string      `json:"query"`
-	Body      map[string]any `json:"body"`
-	Headers   map[string]string      `json:"headers"`
+	RequestID string            `json:"request_id"`
+	Route     string            `json:"route"`
+	Method    string            `json:"method"`
+	Query     map[string]string `json:"query"`
+	Body      map[string]any    `json:"body"`
+	Headers   map[string]string `json:"headers"`
 }
 
 func Packeter(app *fiber.App, serverID string, packet []PacketElement) ([2]any, error) {

@@ -36,7 +36,7 @@ func InitRedis() {
 		MaxRetries:      3,
 		MaxRetryBackoff: time.Second,
 	})
-	
+
 	ctx, cancel := context.WithTimeout(context.Background(), 5*time.Second)
 	defer cancel()
 
