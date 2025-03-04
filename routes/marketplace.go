@@ -39,4 +39,9 @@ func SetupMarketplaceRoutes(app *fiber.App) {
 		// middleware.Authorization(middleware.AuthTypeServerKey),
 		handlers.ListItem,
 	)
+
+	marketplace.Post("/copies/:uaid/buy",
+		// middleware.Authorization(middleware.AuthTypeServerKey),
+		handlers.PurchaseItem,
+	)
 }

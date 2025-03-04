@@ -25,3 +25,7 @@ func GetOwners(c *fiber.Ctx) error {
 func ListItem(c *fiber.Ctx) error {
 	return marketplace.ListItem(c)
 }
+
+func PurchaseItem(c *fiber.Ctx) error {
+	return marketplace.PurchaseItem(c)
+}

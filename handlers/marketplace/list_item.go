@@ -23,7 +23,7 @@ func ListItem(c *fiber.Ctx) error {
 	var body RequestBody
 	if err := c.BodyParser(&body); err != nil {
 		return c.Status(fiber.StatusBadRequest).JSON(fiber.Map{
-			"error": err.Error(),
+			"error": "Missing or invalid body",
 		})
 	}
 
