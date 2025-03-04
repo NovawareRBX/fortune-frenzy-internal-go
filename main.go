@@ -18,12 +18,10 @@ func main() {
 
 	service.InitMariaDB()
 	service.InitRedis()
-
 	app := fiber.New()
 
-	// Add request timer middleware
 	app.Use(middleware.RequestTimer())
-
+	
 	routes.SetupMarketplaceRoutes(app)
 
 	log.Println("Server is running on port 3004")

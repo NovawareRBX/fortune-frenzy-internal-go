@@ -15,3 +15,26 @@ type Item struct {
 	CreatedAt     time.Time `json:"created_at"`
 	Color         string    `json:"color"`
 }
+
+type ItemListing struct {
+	UserAssetID string     `json:"user_asset_id"`
+	SellerID    string     `json:"seller_id"`
+	Currency    string     `json:"currency"`
+	CreatedAt   time.Time  `json:"created_at"`
+	ExpiresAt   *time.Time `json:"expires_at,omitempty"`
+	Price       string     `json:"price"`
+	ItemID      string     `json:"item_id"`
+	Username    *string    `json:"username,omitempty"`
+	DisplayName *string    `json:"display_name,omitempty"`
+}
+
+type ItemOwner struct {
+	CopyID       string    `json:"copy_id"`
+	ItemID       string    `json:"item_id"`
+	OwnerID      string    `json:"owner_id"`
+	UserAssetID  string    `json:"user_asset_id"`
+	AcquiredAt   time.Time `json:"acquired_at"`
+	SerialNumber int       `json:"serial_number"`
+	Username     *string   `json:"username,omitempty"`
+	DisplayName  *string   `json:"display_name,omitempty"`
+}

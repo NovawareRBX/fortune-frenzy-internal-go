@@ -19,4 +19,24 @@ func SetupMarketplaceRoutes(app *fiber.App) {
 		// middleware.Authorization(middleware.AuthTypeServerKey),
 		handlers.GetItemByID,
 	)
+
+	marketplace.Get("/listings",
+		// middleware.Authorization(middleware.AuthTypeServerKey),
+		handlers.GetListings,
+	)
+
+	marketplace.Get("/listings/:id",
+		// middleware.Authorization(middleware.AuthTypeServerKey),
+		handlers.GetListings,
+	)
+
+	marketplace.Get("/owners/:id",
+		// middleware.Authorization(middleware.AuthTypeServerKey),
+		handlers.GetOwners,
+	)
+
+	marketplace.Post("/listings/:uaid",
+		// middleware.Authorization(middleware.AuthTypeServerKey),
+		handlers.ListItem,
+	)
 }
