@@ -21,8 +21,9 @@ func main() {
 	app := fiber.New()
 
 	app.Use(middleware.RequestTimer())
-	
+
 	routes.SetupMarketplaceRoutes(app)
+	routes.SetupCoinflipRoutes(app)
 
 	log.Println("Server is running on port 3004")
 	if err := app.Listen(":3004"); err != nil {
