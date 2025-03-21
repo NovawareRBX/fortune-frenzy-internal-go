@@ -14,4 +14,19 @@ func SetupCoinflipRoutes(app *fiber.App) {
 		// middleware.Authorization(middleware.AuthTypeServerKey),
 		handlers.CreateCoinflip,
 	)
+
+	coinflip.Post("/cancel/:coinflip_id",
+		// middleware.Authorization(middleware.AuthTypeServerKey),
+		handlers.CancelCoinflip,
+	)
+
+	coinflip.Get("/",
+		// middleware.Authorization(middleware.AuthTypeServerKey),
+		handlers.GetCoinflips,
+	)
+
+	coinflip.Post("/start/:coinflip_id",
+		// middleware.Authorization(middleware.AuthTypeServerKey),
+		handlers.StartCoinflip,
+	)
 }

@@ -11,4 +11,6 @@ type CoinflipData struct {
 	ServerID     string    `json:"server_id"`
 	Player1Coin  int       `json:"player1_coin"`
 	WinningCoin  *int      `json:"winning_coin"`
+	TransferID   string    `json:"transfer_id"`
+	AutoID       int64     `json:"auto_id"`
 }

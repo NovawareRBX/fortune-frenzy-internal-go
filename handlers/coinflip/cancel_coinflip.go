@@ -15,12 +15,6 @@ func CancelCoinflip(c *fiber.Ctx) error {
 	}
 
 	redis := service.GetRedisConnection()
-	db, err := service.GetMariaDBConnection()
-	if err != nil {
-		return c.Status(fiber.StatusInternalServerError).JSON(fiber.Map{"error": err.Error()})
-	}
-	defer db.Close()
-
 	coinflipDataStr, err := redis.Get(c.Context(), "coinflip:"+coinflipID).Result()
 	if err != nil || coinflipDataStr == "" {
 		return c.Status(fiber.StatusNotFound).JSON(fiber.Map{"error": "Coinflip not found"})

@@ -11,12 +11,17 @@ nc='\033[0m'
 colored_echo() {
   local color="$1"
   shift
-  echo -e "${color}$*${nc}"
+  echo -e "${color}[$(date '+%Y-%m-%d %H:%M:%S.%3N')] $*${nc}"
 }
 
 run() {
   "$@" > /dev/null 2>&1
 }
+
+no_logs=false
+if [ "$1" == "-nl" ]; then
+  no_logs=true
+fi
 
 colored_echo "$green" "STARTING DEPLOYMENT..."
 
@@ -78,5 +83,9 @@ if docker images --format '{{.Repository}}:{{.Tag}}' | grep -q '^ff-internal-go-
 fi
 
 run docker rename FFInternalGoNew FFInternalGo
-
 colored_echo "$green" "Deployment Complete!"
+
+if [ "$no_logs" = false ]; then
+  colored_echo "$cyan" "Following container logs in real-time (Press Ctrl+C to exit)..."
+  docker logs -f FFInternalGo
+fi

@@ -5,6 +5,7 @@ import (
 	"ffinternal-go/routes"
 	"ffinternal-go/service"
 	"log"
+	"os"
 
 	"github.com/gofiber/fiber/v2"
 	"github.com/joho/godotenv"
@@ -25,8 +26,8 @@ func main() {
 	routes.SetupMarketplaceRoutes(app)
 	routes.SetupCoinflipRoutes(app)
 
-	log.Println("Server is running on port 3004")
-	if err := app.Listen(":3004"); err != nil {
+	log.Println("Server is running on port " + os.Getenv("PORT"))
+	if err := app.Listen(":" + os.Getenv("PORT")); err != nil {
 		log.Fatalf("Error starting server: %v", err)
 	}
 }
